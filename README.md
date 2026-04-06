@@ -5,14 +5,13 @@
 **Trinity Western University**
 **Due: April 11, 2026**
 
----
+
 
 ## 🎮 Overview
 
 Star Catcher VR is a colorful mobile VR game built using A-Frame.
 The goal is to catch glowing stars by gazing at them while avoiding obstacles.
 
----
 
 ## 🚀 How to Run
 
@@ -51,7 +50,7 @@ http://localhost:8080
 * Custom textures
 * Collision detection
 
----
+
 
 ## 🕹️ Controls
 
@@ -59,7 +58,6 @@ http://localhost:8080
 * Desktop: Mouse + click
 * Mobile: Tap and drag
 
----
 
 ## 🎯 How to Play
 
@@ -90,7 +88,7 @@ instructions.
 ## AI was used only for guidance and structure. All final implementation, design decisions, and
 customization were completed independently.
 
-##For more detailed promt chat please check 
+##For more detailed promt chat please check: AI Prompt Documentation
 ---
 
 ## Submission
