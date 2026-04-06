@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Star Catcher VR - Manual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink:   #FFB3C6;
+      --mint:   #B5EAD7;
+      --lemon:  #FFEAA7;
+      --sky:    #AED6F1;
+      --lilac:  #D7BDE2;
+      --peach:  #FFDAB9;
+      --coral:  #FF8B94;
+      --teal:   #81D4C8;
+      --soft-dark: #5a4a6a;
+      --bg: #f5f0ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--soft-dark);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #FFB3C6 0%, #AED6F1 50%, #B5EAD7 100%);
+      padding: 60px 24px 50px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    header::before {
+      content: '⭐🌟✨🌟⭐';
+      font-size: 2rem;
+      display: block; margin-bottom: 16px;
+      animation: sparkle 2s ease-in-out infinite alternate;
+    }
+    @keyframes sparkle {
+      from { letter-spacing: 8px; opacity: 0.8; }
+      to   { letter-spacing: 16px; opacity: 1; }
+    }
+    header h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: #fff;
+      text-shadow: 4px 4px 0 var(--coral), 8px 8px 0 rgba(255,139,148,0.25);
+      margin-bottom: 8px;
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px; padding: 6px 20px;
+      font-size: 0.85rem; font-weight: 800;
+      color: var(--soft-dark); letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .header-meta {
+      background: rgba(255,255,255,0.7);
+      border-radius: 16px; padding: 16px 24px;
+      display: inline-block; text-align: left;
+      font-size: 0.9rem; font-weight: 700;
+      line-height: 2;
+    }
+    .header-meta .name { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: var(--coral); }
+
+    /* NAV */
+    nav {
+      background: #fff;
+      border-bottom: 3px solid var(--pink);
+      padding: 12px 20px;
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 4px 12px rgba(180,150,220,0.12);
+    }
+    nav a {
+      text-decoration: none; font-weight: 800; font-size: 0.85rem;
+      padding: 6px 16px; border-radius: 20px;
+      background: var(--bg); color: var(--soft-dark);
+      transition: all 0.2s; letter-spacing: 0.5px;
+    }
+    nav a:hover { background: var(--pink); color: #c0627a; transform: translateY(-2px); }
+
+    /* MAIN */
+    main { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
+
+    section { margin-bottom: 52px; }
+
+    h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2rem; color: var(--soft-dark);
+      margin: 22px 0 10px;
+    }
+
+    p { margin-bottom: 12px; }
+
+    /* CARDS */
+    .card {
+      background: #fff; border-radius: 20px;
+      padding: 24px; margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(180,150,220,0.12);
+      border-top: 4px solid var(--pink);
+    }
+    .card.mint  { border-color: var(--mint); }
+    .card.sky   { border-color: var(--sky); }
+    .card.lemon { border-color: var(--lemon); }
+    .card.lilac { border-color: var(--lilac); }
+    .card.peach { border-color: var(--peach); }
+
+    /* STEPS */
+    ol.steps { counter-reset: s; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    ol.steps li {
+      counter-increment: s;
+      padding: 12px 14px 12px 56px;
+      background: var(--bg); border-radius: 12px;
+      position: relative; font-weight: 600;
+    }
+    ol.steps li::before {
+      content: counter(s);
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, var(--coral), #FF6B81);
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fredoka One', cursive; font-size: 0.95rem;
+    }
+
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+    th {
+      background: linear-gradient(135deg, var(--pink), var(--lilac));
+      color: var(--soft-dark); padding: 10px 14px;
+      font-family: 'Fredoka One', cursive; font-size: 1rem;
+      text-align: left;
+    }
+    th:first-child { border-radius: 10px 0 0 0; }
+    th:last-child  { border-radius: 0 10px 0 0; }
+    td { padding: 10px 14px; border-bottom: 2px dashed #f0e8ff; font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,179,198,0.08); }
+
+    /* WORLD CARDS */
+    .world-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 12px 0; }
+    .world-card {
+      background: #fff; border-radius: 20px; padding: 20px 16px;
+      text-align: center; box-shadow: 0 4px 16px rgba(180,150,220,0.12);
+      transition: transform 0.2s;
+    }
+    .world-card:hover { transform: translateY(-4px); }
+    .world-card .icon { font-size: 2.8rem; margin-bottom: 8px; display: block; }
+    .world-card h3 { margin: 0 0 6px; font-size: 1.1rem; }
+    .world-card p { font-size: 0.85rem; color: #888; margin: 0; }
+    .world-card.meadow { border-top: 4px solid var(--pink); }
+    .world-card.space  { border-top: 4px solid var(--sky); }
+    .world-card.ocean  { border-top: 4px solid var(--mint); }
+
+    /* CONTROL KEY */
+    .control-row { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .key {
+      min-width: 80px; padding: 8px 14px; background: #fff;
+      border: 2px solid var(--lilac); border-radius: 10px;
+      font-family: 'Fredoka One', cursive; font-size: 0.9rem;
+      color: var(--soft-dark); text-align: center;
+      box-shadow: 0 3px 0 var(--lilac); flex-shrink: 0;
+    }
+
+    /* LEVEL TABLE colored rows */
+    .lvl-1 td:first-child { color: #aaa; }
+    .lvl-2 td:first-child { color: var(--mint); }
+    .lvl-3 td:first-child { color: var(--sky); }
+    .lvl-4 td:first-child { color: var(--coral); }
+    .lvl-5 td:first-child { color: #FFD700; }
+
+    /* SCORE OBJECTS */
+    .obj-row { display: flex; align-items: center; gap: 14px; padding: 10px; background: var(--bg); border-radius: 12px; margin-bottom: 8px; }
+    .obj-icon { font-size: 1.8rem; width: 44px; text-align: center; }
+    .obj-info { flex: 1; }
+    .obj-name { font-weight: 800; font-size: 1rem; }
+    .obj-desc { font-size: 0.85rem; color: #888; }
+    .obj-pts  { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: var(--coral); }
+
+    /* MARKING TABLE */
+    .mark-table td:nth-child(2) { font-family: 'Fredoka One', cursive; color: var(--coral); text-align: center; }
+    .mark-table th:nth-child(2) { text-align: center; }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, var(--pink), var(--sky));
+      padding: 32px; text-align: center;
+      font-weight: 700; color: var(--soft-dark);
+    }
+    footer .footer-stars { font-size: 1.5rem; margin-bottom: 8px; }
+    footer .footer-name  { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: #fff; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Star Catcher VR</h1>
+  <div class="header-badge">Game Manual</div><br/>
+  <div class="header-meta">
+    <div class="name">Gnana Damarla</div>
+    <div>CMPT 461 - Immersive Computing</div>
+    <div>Trinity Western University</div>
+    <div>Due: April 11, 2026</div>
+  </div>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#install">Install</a>
+  <a href="#setup">Setup</a>
+  <a href="#controls">Controls</a>
+  <a href="#worlds">Worlds</a>
+  <a href="#howtoplay">How to Play</a>
+  <a href="#levels">Levels</a>
+  <a href="#marking">Marking</a>
+</nav>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <h2 style="color:var(--coral)">🌟 What is Star Catcher VR?</h2>
+    <div class="card">
+      <p>
+        <strong>Star Catcher VR</strong> is a colorful mobile VR game built with A-Frame.
+        You explore three beautiful 3D worlds and catch glowing stars by gazing at them - no controllers needed!
+        Avoid the grey rocks, beat the clock, and level up to become a Star Champion!
+      </p>
+      <p>
+        Works on any phone with a Google Cardboard VR headset, or play directly in your browser on desktop.
+        Just look around - your gaze does all the work!
+      </p>
+    </div>
+
+    <div class="world-grid">
+      <div class="world-card meadow">
+        <span class="icon">🌸</span>
+        <h3>Flower Meadow</h3>
+        <p>A sunny green field with flowers, trees and drifting clouds</p>
+      </div>
+      <div class="world-card space">
+        <span class="icon">🚀</span>
+        <h3>Outer Space</h3>
+        <p>A dark galaxy full of planets, moons and shooting stars</p>
+      </div>
+      <div class="world-card ocean">
+        <span class="icon">🐠</span>
+        <h3>Under the Sea</h3>
+        <p>A glowing ocean floor with coral, fish and bubbles</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install">
+    <h2 style="color:var(--teal)">💻 How to Install and Run</h2>
+
+    <h3>Option A - Play Online (Easiest!)</h3>
+    <div class="card mint">
+      <ol class="steps">
+        <li>Open <strong>Google Chrome</strong> on your phone or computer</li>
+        <li>Go to the GitHub Pages link provided in the submission</li>
+        <li>The game loads instantly - no downloads needed!</li>
+        <li>For VR: put your phone in a Google Cardboard headset and tap the VR button (small goggles icon in the bottom corner)</li>
+      </ol>
+    </div>
+
+    <h3>Option B - Run on Your Computer</h3>
+    <div class="card sky">
+      <ol class="steps">
+        <li>Download or unzip the project folder</li>
+        <li>Open a terminal / command prompt in that folder</li>
+        <li>Run: <code style="background:#eef;padding:2px 8px;border-radius:6px;font-size:0.95rem">python3 -m http.server 8080</code></li>
+        <li>Open Chrome and go to: <code style="background:#eef;padding:2px 8px;border-radius:6px;font-size:0.95rem">http://localhost:8080</code></li>
+        <li>For mobile VR on same Wi-Fi: use <code style="background:#eef;padding:2px 8px;border-radius:6px;font-size:0.95rem">http://YOUR_IP:8080</code></li>
+      </ol>
+    </div>
+
+    <h3>Best Browsers</h3>
+    <table>
+      <tr><th>Browser</th><th>Desktop</th><th>Mobile VR</th></tr>
+      <tr><td>Google Chrome</td><td>Best</td><td>Best</td></tr>
+      <tr><td>Microsoft Edge</td><td>Great</td><td>Good</td></tr>
+      <tr><td>Firefox</td><td>Good</td><td>OK</td></tr>
+      <tr><td>Safari (iPhone)</td><td>OK</td><td>Limited</td></tr>
+    </table>
+  </section>
+
+  <!-- SETUP -->
+  <section id="setup">
+    <h2 style="color:var(--lilac)">⚙ Game Setup Options</h2>
+    <p>When the game first starts you will see a setup screen with these options:</p>
+    <div class="card lilac">
+      <table>
+        <tr><th>Option</th><th>Choices</th><th>What it does</th></tr>
+        <tr><td>🎵 Background Music</td><td>ON / OFF</td><td>Toggles the cheerful background music</td></tr>
+        <tr><td>🔊 Sound Effects</td><td>ON / OFF</td><td>Toggles catch, miss and level-up sounds</td></tr>
+        <tr><td>🥽 VR Mode</td><td>ON / OFF</td><td>Shows or hides the VR split-screen button</td></tr>
+        <tr><td>Timer</td><td>30s / 60s / 90s</td><td>How long each round lasts</td></tr>
+        <tr><td>Difficulty</td><td>Easy / Medium / Hard</td><td>Controls how fast stars appear</td></tr>
+      </table>
+    </div>
+    <p>You can return to settings at any time from the main menu.</p>
+  </section>
+
+  <!-- CONTROLS -->
+  <section id="controls">
+    <h2 style="color:var(--sky)">🕹 How to Control the Game</h2>
+
+    <h3>VR Mode - Gaze Control (Main Method)</h3>
+    <div class="card sky">
+      <p>A small pink ring is always in the centre of your view. To catch a star:</p>
+      <ol class="steps">
+        <li>Look at a glowing star - the ring will start to grow</li>
+        <li>Hold your gaze on the star for <strong>1.2 seconds</strong></li>
+        <li>The ring fills up - then the star is caught!</li>
+        <li>Look away from grey rocks - they will subtract a point!</li>
+      </ol>
+    </div>
+
+    <h3>Desktop Mode</h3>
+    <div class="card lemon">
+      <div class="control-row">
+        <span class="key">Click</span>
+        <span>Catch a star or activate any button</span>
+      </div>
+      <div class="control-row">
+        <span class="key">Mouse drag</span>
+        <span>Look around the 3D world</span>
+      </div>
+      <div class="control-row">
+        <span class="key">Esc</span>
+        <span>Exit VR mode</span>
+      </div>
+    </div>
+
+    <h3>Mobile (Non-VR)</h3>
+    <div class="card peach">
+      <div class="control-row">
+        <span class="key">Tap</span>
+        <span>Catch stars and press buttons</span>
+      </div>
+      <div class="control-row">
+        <span class="key">Drag</span>
+        <span>Look around</span>
+      </div>
+      <div class="control-row">
+        <span class="key">Tilt Phone</span>
+        <span>Move your view (gyroscope)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORLDS -->
+  <section id="worlds">
+    <h2 style="color:var(--mint)">🌍 The Three Worlds</h2>
+
+    <div class="card">
+      <h3>🌸 Flower Meadow</h3>
+      <p>A bright daytime field with soft green hills, colourful trees and drifting white clouds. Stars and collectibles float gently through the air above the flowers. The warm sunlight creates a cheerful, relaxing atmosphere.</p>
+    </div>
+    <div class="card sky">
+      <h3>🚀 Outer Space</h3>
+      <p>A dark galaxy with hundreds of twinkling stars in the background, giant ringed planets, a glowing moon and a cute pink rocket. Stars here glow even brighter against the night sky, making them easier to spot - but they move a little faster!</p>
+    </div>
+    <div class="card mint">
+      <h3>🐠 Under the Sea</h3>
+      <p>A colourful underwater world with sandy patches, tall coral in pink, teal and yellow, swimming fish and drifting bubbles. The blue lighting and gentle glow make for a magical and calm atmosphere while you catch the glowing stars underwater.</p>
+    </div>
+  </section>
+
+  <!-- HOW TO PLAY -->
+  <section id="howtoplay">
+    <h2 style="color:var(--coral)">🎮 How to Play</h2>
+
+    <div class="card">
+      <ol class="steps">
+        <li>At the <strong>Flash Screen</strong>, wait for the game to load (about 5 seconds)</li>
+        <li>On the <strong>Setup Screen</strong>, choose your settings and press PLAY!</li>
+        <li>On the <strong>World Menu</strong>, gaze at one of the three world buttons to choose it</li>
+        <li>A <strong>countdown</strong> (3... 2... 1... GO!) will appear before the round starts</li>
+        <li>Stars will float into the world - <strong>gaze at them</strong> to catch them!</li>
+        <li>Avoid grey rocks - gazing at them takes away a point</li>
+        <li>The timer counts down - catch as many stars as you can before time runs out!</li>
+        <li>After the round, see your final score and choose to play again!</li>
+      </ol>
+    </div>
+
+    <h3>Objects in the Game</h3>
+    <div class="obj-row">
+      <span class="obj-icon">⭐</span>
+      <div class="obj-info">
+        <div class="obj-name">Glowing Star</div>
+        <div class="obj-desc">Colourful, bouncing and glowing - gaze at it to catch!</div>
+      </div>
+      <span class="obj-pts">+1 point</span>
+    </div>
+    <div class="obj-row">
+      <span class="obj-icon">🪨</span>
+      <div class="obj-info">
+        <div class="obj-name">Grey Rock</div>
+        <div class="obj-desc">Dull grey, no glow - do NOT gaze at these!</div>
+      </div>
+      <span class="obj-pts" style="color:var(--coral)">-1 point</span>
+    </div>
+  </section>
+
+  <!-- LEVELS -->
+  <section id="levels">
+    <h2 style="color:var(--lemon);text-shadow:1px 1px 0 #e0a000">⭐ Level System</h2>
+    <p>As you catch more stars your level increases! Higher levels mean stars appear faster for more challenge.</p>
+    <div class="card lemon">
+      <table>
+        <tr><th>Level</th><th>Stars Needed</th><th>What Changes</th></tr>
+        <tr class="lvl-1"><td>Level 1 - Beginner</td><td>0 stars</td><td>Normal speed, easy to catch</td></tr>
+        <tr class="lvl-2"><td>Level 2 - Star Finder</td><td>10 stars</td><td>Stars appear a little faster</td></tr>
+        <tr class="lvl-3"><td>Level 3 - Star Hunter</td><td>25 stars</td><td>Even faster - stay focused!</td></tr>
+        <tr class="lvl-4"><td>Level 4 - Star Hero</td><td>45 stars</td><td>Very fast - rock dodging matters now</td></tr>
+        <tr class="lvl-5"><td>Level 5 - Star Champion</td><td>70 stars</td><td>Maximum speed - true champion!</td></tr>
+      </table>
+    </div>
+    <p>A big colourful <strong>"Level Up!"</strong> banner appears every time you advance. Keep going!</p>
+  </section>
+
+  <!-- MARKING -->
+  <section id="marking">
+    <h2 style="color:var(--soft-dark)">📋 Assignment Marking Reference</h2>
+    <div class="card">
+      <table class="mark-table">
+        <tr><th>Requirement</th><th>Points</th><th>How it is implemented</th></tr>
+        <tr><td>Unique game idea</td><td>5</td><td>Original Star Catcher concept with 3 unique themed worlds: Meadow, Space, Ocean</td></tr>
+        <tr><td>Manual</td><td>5</td><td>This styled HTML manual page (manual.html)</td></tr>
+        <tr><td>Flash screen</td><td>10</td><td>Animated pastel splash screen showing name, course, university and bouncing stars</td></tr>
+        <tr><td>Setup option</td><td>10</td><td>Full setup screen: music toggle, SFX toggle, VR toggle, game timer, difficulty level</td></tr>
+        <tr><td>At least two levels</td><td>10</td><td>5-level system based on stars caught, each level increases spawn speed</td></tr>
+        <tr><td>Sound effects and music</td><td>10</td><td>Web Audio API: cheerful background music (mutable in setup), catch sound, miss sound, level-up fanfare, countdown tick</td></tr>
+        <tr><td>Scoreboard</td><td>10</td><td>Always-visible top HUD showing Stars, Level and Time remaining - updates in real time</td></tr>
+        <tr><td>Gaze controls</td><td>10</td><td>A-Frame cursor with fuse (1.2s gaze activation) + raycaster on all catchable objects. Ring cursor grows to show progress</td></tr>
+        <tr><td>Stereoscopic view</td><td>5</td><td>A-Frame built-in VR mode with Google Cardboard support</td></tr>
+        <tr><td>Own objects with textures</td><td>10</td><td>All textures created with HTML Canvas: ground, stars, clouds, flowers, rocks, fish, coral, planets, moon, sign</td></tr>
+        <tr><td>Collision detection</td><td>5</td><td>A-Frame raycaster detects gaze intersection with every catchable star and rock</td></tr>
+        <tr><td>Extra work</td><td>10</td><td>3 fully themed worlds, particle burst effect on catch, animated countdown, toast notifications, animated level-up banner, procedural Web Audio engine, rising bubble animation on flash screen, auto-remove objects, difficulty scaling</td></tr>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-stars">⭐ 🌟 ✨ 🌟 ⭐</div>
+  <div class="footer-name">Gnana Damarla</div>
+  <div>CMPT 461 - Immersive Computing - Trinity Western University - 2026</div>
+  <div style="margin-top:8px; font-size:0.85rem; opacity:0.8">Built with A-Frame WebVR - HTML5 Canvas - Web Audio API</div>
+</footer>
+
+</body>
+</html>
