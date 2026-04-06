@@ -74,26 +74,49 @@ AI was used only for minor assistance such as:
 * Understanding A-Frame features
 * Structuring documentation
 
-### Prompts I gave AI
+## AI Prompt Documentation
 
-* How can I implement gaze-based interaction in A-Frame using cursor and raycaster to detect when
-a user looks at an object?
-* How do I add background music and sound effects in an A-Frame VR game and allow toggling
-audio in a settings menu?
-* Suggest a simple level progression system for a VR game where difficulty increases gradually over
-time.
-* Create a simple README structure for a VR project including setup, controls, and gameplay
-instructions.
+This document shows how AI tools were used during the development of this project. AI was used only for guidance and understanding concepts. All implementation and final decisions were done independently.
 
-## AI was used only for guidance and structure. All final implementation, design decisions, and
-customization were completed independently.
+Step 1- Initial Idea Exploration
+Prompt: Can you suggest a simple and colorful VR game idea for students aged 13–16 using pastel colors and no violence?
+Purpose: To explore possible game ideas that meet assignment requirements.
+Outcome: Helped guide the direction toward a simple concept. Final idea was refined independently.
 
-##For more detailed promt chat please check: AI Prompt Documentation
+Step 2- Refining Gameplay Concept
+Prompt: Suggest a simple gameplay loop for a VR game using gaze controls.
+Purpose: To understand interaction without controllers.
+Outcome: Inspired the star-catching mechanic.
+
+Step 3- Gaze Interaction
+Prompt: How can I implement gaze-based interaction in A-Frame using cursor and raycaster?
+Purpose: To understand technical implementation.
+Outcome: Applied using cursor and raycaster.
+
+Step 4- Sound and Audio
+Prompt: How do I add background music and sound effects and allow toggling?
+Purpose: To implement required audio features.
+Outcome: Added music and sound toggle in setup.
+
+Step 50 Level Design
+Prompt: Suggest a level progression system where difficulty increases over time.
+Purpose: To structure gameplay progression.
+Outcome: Implemented multiple levels with increasing difficulty.
+
+Step 6- Documentation
+Prompt: Create a simple README structure for a VR project.
+Purpose: To improve documentation.
+Outcome: Used to organize README and manual.
+
+Final Note
+AI was used only for guidance. All design, coding, and implementation were completed independently.
+
 ---
+
 
 ## Submission
 
 * GitHub Pages link
 * Repository files
 * Manual (HTML)
-* AI prompt documentation
+* AI prompt documentation 
